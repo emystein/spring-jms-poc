@@ -1,4 +1,4 @@
-package com.hackerrank.scheduling.message;
+package ar.com.flow.spring.jms.message;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

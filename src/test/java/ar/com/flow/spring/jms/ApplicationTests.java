@@ -1,32 +1,30 @@
-package com.hackerrank.scheduling;
+package ar.com.flow.spring.jms;
 
-import com.hackerrank.scheduling.message.ScheduledMessageErrorHandler;
-import com.hackerrank.scheduling.message.ScheduledMessageReceiver;
-import com.hackerrank.scheduling.message.ScheduledMessageSender;
-import com.hackerrank.scheduling.model.MessageObject;
+import ar.com.flow.spring.jms.message.ScheduledMessageErrorHandler;
+import ar.com.flow.spring.jms.message.ScheduledMessageReceiver;
+import ar.com.flow.spring.jms.message.ScheduledMessageSender;
+import ar.com.flow.spring.jms.model.MessageObject;
 import org.awaitility.Duration;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 import static org.awaitility.Awaitility.await;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-class ApplicationTests {
+public class ApplicationTests {
     @SpyBean
     ScheduledMessageSender scheduledMessageSender;
     @SpyBean

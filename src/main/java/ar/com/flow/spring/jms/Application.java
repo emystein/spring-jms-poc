@@ -1,5 +1,6 @@
-package com.hackerrank.scheduling;
+package ar.com.flow.spring.jms;
 
+import javax.jms.ConnectionFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
@@ -11,8 +12,6 @@ import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.util.ErrorHandler;
-
-import javax.jms.ConnectionFactory;
 
 @SpringBootApplication
 @EnableScheduling

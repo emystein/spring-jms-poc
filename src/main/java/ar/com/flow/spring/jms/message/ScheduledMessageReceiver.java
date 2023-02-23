@@ -1,6 +1,6 @@
-package com.hackerrank.scheduling.message;
+package ar.com.flow.spring.jms.message;
 
-import com.hackerrank.scheduling.model.MessageObject;
+import ar.com.flow.spring.jms.model.MessageObject;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 

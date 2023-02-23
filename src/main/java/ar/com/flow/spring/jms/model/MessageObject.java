@@ -1,4 +1,4 @@
-package com.hackerrank.scheduling.model;
+package ar.com.flow.spring.jms.model;
 
 public class MessageObject {
     private String toAddress;

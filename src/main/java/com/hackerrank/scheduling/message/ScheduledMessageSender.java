@@ -1,5 +1,6 @@
 package com.hackerrank.scheduling.message;
 
+import com.hackerrank.scheduling.model.MessageObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
@@ -13,11 +14,11 @@ public class ScheduledMessageSender {
 
     @Scheduled(fixedDelay = 5000)
     public void sendingInfoMessage() {
-        jmsTemplate.convertAndSend("info@example.com", "info");
+        jmsTemplate.convertAndSend("info@example.com", new MessageObject("info@example.com", "info"));
     }
 
     @Scheduled(fixedDelay = 8000)
     public void sendingTestMessage() {
-        jmsTemplate.convertAndSend("test@example.com", "test");
+        jmsTemplate.convertAndSend("test@example.com", new MessageObject("test@example.com", "test"));
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TestScheduledMessageReceiver {
-    @JmsListener(destination = "test@example.com", containerFactory = "jmsListenerContainerFactory")
+    @JmsListener(destination = "test@example.com")
     public void receiveMessage(MessageObject message) {
         throw new RuntimeException("Message sent to test@example.com");
     }

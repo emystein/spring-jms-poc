@@ -17,7 +17,6 @@ import org.springframework.util.ErrorHandler;
 @EnableScheduling
 @EnableJms
 public class Application {
-
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
@@ -27,7 +26,7 @@ public class Application {
             DefaultJmsListenerContainerFactoryConfigurer configurer,
             ConnectionFactory connectionFactory,
             ErrorHandler myErrorHandler) {
-        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+        var factory = new DefaultJmsListenerContainerFactory();
         configurer.configure(factory, connectionFactory);
         factory.setErrorHandler(myErrorHandler);
         return factory;
@@ -35,7 +34,7 @@ public class Application {
 
     @Bean // Serialize message content to json using TextMessage
     public MessageConverter jacksonJmsMessageConverter() {
-        MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
+        var converter = new MappingJackson2MessageConverter();
         converter.setTargetType(MessageType.TEXT);
         converter.setTypeIdPropertyName("_type");
         return converter;

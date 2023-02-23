@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ScheduledMessageReceiver {
-    @JmsListener(destination = "info@example.com", containerFactory = "jmsListenerContainerFactory")
+    @JmsListener(destination = "info@example.com")
     public void receiveMessage(MessageObject message) {
         System.out.println(message.getMessage());
     }

@@ -5,9 +5,9 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ScheduledMessageReceiver {
-    @JmsListener(destination = "info@example.com")
+public class TestScheduledMessageReceiver {
+    @JmsListener(destination = "test@example.com")
     public void receiveMessage(MessageObject message) {
-        System.out.println(message.getMessage());
+        throw new RuntimeException("Message sent to test@example.com");
     }
 }

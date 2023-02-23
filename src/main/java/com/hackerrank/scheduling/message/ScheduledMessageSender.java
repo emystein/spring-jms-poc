@@ -3,7 +3,6 @@ package com.hackerrank.scheduling.message;
 import com.hackerrank.scheduling.model.MessageObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 

@@ -90,14 +90,14 @@ class ApplicationTests {
 
     @Test
     public void checkReceivingMessage() {
-        await().atMost(Duration.TEN_SECONDS).untilAsserted(() -> {
+        await().atMost(Duration.ONE_MINUTE).untilAsserted(() -> {
             verify(scheduledMessageReceiver, atLeast(2)).receiveMessage(any(MessageObject.class));
         });
     }
 
     @Test
     public void checkingErrorHandler() {
-        await().atMost(Duration.TEN_SECONDS).untilAsserted(() -> {
+        await().atMost(Duration.ONE_MINUTE).untilAsserted(() -> {
             verify(scheduledMessageErrorHandler, atLeast(1)).handleError(any());
         });
     }

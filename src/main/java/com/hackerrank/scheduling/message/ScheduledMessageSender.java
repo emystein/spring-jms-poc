@@ -16,7 +16,8 @@ public class ScheduledMessageSender {
         jmsTemplate.convertAndSend("info@example.com", "info");
     }
 
+    @Scheduled(fixedDelay = 8000)
     public void sendingTestMessage() {
-        // send message `test` toAddress `test@example.com` at each 8 sec
+        jmsTemplate.convertAndSend("test@example.com", "test");
     }
 }

@@ -1,5 +1,5 @@
 plugins {
-    id("org.springframework.boot") version "2.7.9"
+    id("org.springframework.boot") version "3.0.2"
     id("io.spring.dependency-management") version "1.1.0"
     id 'java-library'
 }
@@ -12,15 +12,16 @@ repositories {
 }
 
 dependencies {
-    api 'org.springframework.boot:spring-boot-starter-activemq'
-    api 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'org.springframework.boot:spring-boot-starter-artemis'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.apache.activemq:artemis-jakarta-server' // embedded broker for testing purposes
     testImplementation 'org.awaitility:awaitility:3.1.2'
 }
 
 group = 'ar.com.flow'
 version = '1.0'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 test {
     useJUnitPlatform()

@@ -15,6 +15,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.concurrent.TimeUnit;
 
 import static org.awaitility.Awaitility.await;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -22,7 +23,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class ApplicationTests {
     @SpyBean
@@ -88,14 +88,14 @@ public class ApplicationTests {
 
     @Test
     public void checkReceivingMessage() {
-        await().atMost(Duration.ONE_MINUTE).untilAsserted(() -> {
+        await().atMost(new Duration(20, TimeUnit.SECONDS)).untilAsserted(() -> {
             verify(scheduledMessageReceiver, atLeast(2)).receiveMessage(any(MessageObject.class));
         });
     }
 
     @Test
     public void checkingErrorHandler() {
-        await().atMost(Duration.ONE_MINUTE).untilAsserted(() -> {
+        await().atMost(new Duration(20, TimeUnit.SECONDS)).untilAsserted(() -> {
             verify(scheduledMessageErrorHandler, atLeast(1)).handleError(any());
         });
     }
